@@ -23,7 +23,7 @@ public class DemoServiceImpl implements DemoService {
 		
 		return demoDao.getDemoByID(id);
 	}
-
+	//事务管理
 	@Transactional
 	@Override
 	public int insertDemo(String name) {
