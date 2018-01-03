@@ -21,21 +21,29 @@ public class DemoController {
 
 	@Autowired
 	private DemoService demoService;
-	
+
 	@Autowired
 	private DemoMapper demoMapper;
 
-	
 	@RequestMapping("/getByID")
 	public Demo getDemoByID(Integer id) {
 
 		return demoService.getDemoByID(id);
 	}
-	
-	
+
 	@RequestMapping("/getByIDForMybatis")
-	public Demo getDemoByIDForMybatis(Integer id){
-		
+	public Demo getDemoByIDForMybatis(Integer id) {
+
 		return demoMapper.getDemoByID(id);
 	}
+
+	@RequestMapping("/insertDemo")
+	public String insertDemo(String name){
+		
+		if ( demoService.insertDemo(name) > 0 )
+			return "success";
+		else
+			return "failed";
+	}
+
 }
